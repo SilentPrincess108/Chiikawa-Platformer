@@ -6,13 +6,20 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
+const GRAVITY = 1000.0
+const FALL_GRAVITY = 1500.0
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y += get_grav(velocity) * delta
 	get_input()
+
+func get_grav(velocity: Vector2): #change gravity when jumping and falling
+	if velocity.y < 0:
+		return GRAVITY
+	return FALL_GRAVITY
 
 func get_input():
 	# Handle jump.
