@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1pa8dj4gvfbq"]
+[gd_scene load_steps=6 format=3 uid="uid://c1pa8dj4gvfbq"]
 
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://b1vfb7dhdx501" path="res://scenes/player.tscn" id="2_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://bmyt2cqocpgr0" path="res://scenes/jumppad.tscn" id="3_nd71p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8ivh"]
 texture = ExtResource("1_g7g4h")
@@ -33,3 +34,7 @@ layer_1/tile_data = PackedInt32Array(1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0
 
 [node name="Player" parent="." instance=ExtResource("2_j8ivh")]
 position = Vector2(182, 506)
+
+[node name="jumppad" parent="." instance=ExtResource("3_nd71p")]
+position = Vector2(513, 576)
+scale = Vector2(0.5, 0.5)
