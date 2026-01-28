@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm7cnjbds4vk8"]
+[gd_scene load_steps=6 format=3 uid="uid://dm7cnjbds4vk8"]
 
 [ext_resource type="PackedScene" uid="uid://b1vfb7dhdx501" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://51m01mg8p5iy" path="res://assets/sprites/world_tileset.png" id="2_bswci"]
+[ext_resource type="PackedScene" uid="uid://bbue5wxfas7qp" path="res://scenes/killzone.tscn" id="3_rus8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
 texture = ExtResource("2_bswci")
@@ -169,7 +170,7 @@ sources/0 = SubResource("TileSetAtlasSource_rus8k")
 
 [node name="Player" parent="." instance=ExtResource("1_014kd")]
 z_index = 10
-position = Vector2(70, 75)
+position = Vector2(109, 424)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -256,3 +257,6 @@ offset_right = 4279.0
 offset_bottom = 136.0
 text = "Hot Cake - End Level"
 autowrap_mode = 2
+
+[node name="killzone" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(1405, 750)
