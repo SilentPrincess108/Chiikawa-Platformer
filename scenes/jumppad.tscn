@@ -1,67 +1,70 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmyt2cqocpgr0"]
+[gd_scene load_steps=11 format=3 uid="uid://bmyt2cqocpgr0"]
 
 [ext_resource type="Script" uid="uid://bqowiamv2lll0" path="res://scripts/jumppad.gd" id="1_8iihu"]
-[ext_resource type="Texture2D" uid="uid://c7rwnvipo8pil" path="res://icon.svg" id="1_rof1k"]
+[ext_resource type="Texture2D" uid="uid://bmgdumaulq7fx" path="res://assets/sprites/flan.png" id="2_8iihu"]
 
-[sub_resource type="Animation" id="Animation_24eqg"]
-resource_name = "bounce"
-length = 0.4
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
-"transitions": PackedFloat32Array(0.5, 2, 0.5, 2),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.75), Vector2(1, 1.15), Vector2(1, 1)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_24eqg"]
+atlas = ExtResource("2_8iihu")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Animation" id="Animation_7tkp4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tkp4"]
+atlas = ExtResource("2_8iihu")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_621fj"]
-_data = {
-&"RESET": SubResource("Animation_7tkp4"),
-&"bounce": SubResource("Animation_24eqg")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_621fj"]
+atlas = ExtResource("2_8iihu")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_225dc"]
+atlas = ExtResource("2_8iihu")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1kcf"]
+atlas = ExtResource("2_8iihu")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tg8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24eqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tkp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_621fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_225dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1kcf")
+}],
+"loop": false,
+"name": &"bounce",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_225dc"]
-size = Vector2(128, 128)
+size = Vector2(58, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1kcf"]
-size = Vector2(128, 27)
+size = Vector2(58, 7)
 
 [node name="jumppad" type="Node2D"]
 script = ExtResource("1_8iihu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rof1k")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_621fj")
-}
-speed_scale = 1.5
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2tg8m")
+animation = &"bounce"
+frame = 4
+frame_progress = 1.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_225dc")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -69,7 +72,7 @@ position = Vector2(0, 1)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -69.5)
+position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_t1kcf")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

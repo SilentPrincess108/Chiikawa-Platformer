@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm7cnjbds4vk8"]
+[gd_scene load_steps=8 format=3 uid="uid://dm7cnjbds4vk8"]
 
 [ext_resource type="PackedScene" uid="uid://b1vfb7dhdx501" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="2_rus8k"]
 [ext_resource type="PackedScene" uid="uid://qgqy6brjm8c6" path="res://scenes/boundry.tscn" id="3_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://bbue5wxfas7qp" path="res://scenes/killzone.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://bmyt2cqocpgr0" path="res://scenes/jumppad.tscn" id="5_4nkto"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xbjy"]
 texture = ExtResource("2_rus8k")
@@ -137,3 +138,7 @@ collision_mask = 3
 [node name="boundry" parent="." instance=ExtResource("3_5xbjy")]
 position = Vector2(-14, 504)
 rotation = 1.5708
+
+[node name="jumppad" parent="." instance=ExtResource("5_4nkto")]
+position = Vector2(1315, 539)
+scale = Vector2(2, 2)
