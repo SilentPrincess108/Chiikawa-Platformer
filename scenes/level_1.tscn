@@ -142,3 +142,7 @@ rotation = 1.5708
 [node name="jumppad" parent="." instance=ExtResource("5_4nkto")]
 position = Vector2(731, 549)
 scale = Vector2(3.5, 3.5)
+
+[node name="jumppad2" parent="." instance=ExtResource("5_4nkto")]
+position = Vector2(1042, 458)
+scale = Vector2(3.5, 3.5)
