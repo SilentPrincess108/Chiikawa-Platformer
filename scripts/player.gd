@@ -41,7 +41,7 @@ func get_input():
 		animated_sprite.play("idle")
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump"):
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_released("Jump") and velocity.y < 0:

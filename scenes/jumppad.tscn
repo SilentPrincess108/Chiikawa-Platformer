@@ -46,11 +46,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_225dc"]
-size = Vector2(58, 50)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8iihu"]
+radius = 23.0
+height = 48.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1kcf"]
-size = Vector2(58, 7)
+size = Vector2(36, 11.5)
 
 [node name="jumppad" type="Node2D"]
 script = ExtResource("1_8iihu")
@@ -64,15 +65,15 @@ frame_progress = 1.0
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 7)
-shape = SubResource("RectangleShape2D_225dc")
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_8iihu")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 1)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -21)
+position = Vector2(0, -18.75)
 shape = SubResource("RectangleShape2D_t1kcf")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
