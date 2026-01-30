@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm7cnjbds4vk8"]
+[gd_scene load_steps=9 format=3 uid="uid://dm7cnjbds4vk8"]
 
 [ext_resource type="PackedScene" uid="uid://b1vfb7dhdx501" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="2_rus8k"]
 [ext_resource type="PackedScene" uid="uid://qgqy6brjm8c6" path="res://scenes/boundry.tscn" id="3_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://bbue5wxfas7qp" path="res://scenes/killzone.tscn" id="3_rus8k"]
 [ext_resource type="PackedScene" uid="uid://bmyt2cqocpgr0" path="res://scenes/jumppad.tscn" id="5_4nkto"]
+[ext_resource type="PackedScene" uid="uid://6bexidcooj7l" path="res://scenes/platform.tscn" id="6_fcfvj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xbjy"]
 texture = ExtResource("2_rus8k")
@@ -146,3 +147,11 @@ scale = Vector2(3.5, 3.5)
 [node name="jumppad2" parent="." instance=ExtResource("5_4nkto")]
 position = Vector2(1042, 458)
 scale = Vector2(3.5, 3.5)
+
+[node name="Platform" parent="." instance=ExtResource("6_fcfvj")]
+position = Vector2(1259, 306)
+scale = Vector2(2.5, 2.5)
+
+[node name="Platform2" parent="." instance=ExtResource("6_fcfvj")]
+position = Vector2(1431, 302)
+scale = Vector2(2.5, 2.5)

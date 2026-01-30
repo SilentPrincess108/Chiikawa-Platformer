@@ -12,7 +12,7 @@ config_version=5
 
 config/name="chiikawa-game"
 run/main_scene="uid://dm7cnjbds4vk8"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [editor_plugins]
