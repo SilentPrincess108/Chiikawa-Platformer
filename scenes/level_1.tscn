@@ -150,8 +150,6 @@ scale = Vector2(3.5, 3.5)
 
 [node name="Platform" parent="." instance=ExtResource("6_fcfvj")]
 position = Vector2(1259, 306)
-scale = Vector2(2.5, 2.5)
 
 [node name="Platform2" parent="." instance=ExtResource("6_fcfvj")]
 position = Vector2(1431, 302)
-scale = Vector2(2.5, 2.5)
