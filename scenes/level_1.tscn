@@ -166,46 +166,48 @@ collision_mask = 3
 position = Vector2(-14, 504)
 rotation = 1.5708
 
-[node name="jumppad" parent="." instance=ExtResource("5_4nkto")]
-position = Vector2(1043, 404)
+[node name="Platforms" type="Node" parent="."]
+
+[node name="jumppad" parent="Platforms" instance=ExtResource("5_4nkto")]
+position = Vector2(1042, 404)
 scale = Vector2(3.5, 3.5)
 
-[node name="jumppad2" parent="." instance=ExtResource("5_4nkto")]
-position = Vector2(1434, 272)
+[node name="jumppad2" parent="Platforms" instance=ExtResource("5_4nkto")]
+position = Vector2(1433, 272)
 scale = Vector2(3.5, 3.5)
 
-[node name="Platform" parent="." instance=ExtResource("6_fcfvj")]
-position = Vector2(1209, 270)
+[node name="Platform" parent="Platforms" instance=ExtResource("6_fcfvj")]
+position = Vector2(1208, 270)
 sprite = ExtResource("7_15mv3")
 
-[node name="Platform2" parent="." instance=ExtResource("6_fcfvj")]
-position = Vector2(1614, 93)
+[node name="Platform2" parent="Platforms" instance=ExtResource("6_fcfvj")]
+position = Vector2(1613, 93)
 sprite = ExtResource("8_e3sih")
 
-[node name="Static_Platform" parent="." instance=ExtResource("9_2y5yt")]
-position = Vector2(759.99994, 497)
+[node name="Static_Platform" parent="Platforms" instance=ExtResource("9_2y5yt")]
+position = Vector2(758.99994, 497)
 rotation = -0.44505897
 scale = Vector2(5, 5)
 texture = ExtResource("10_2os1m")
 
-[node name="Static_Platform2" parent="." instance=ExtResource("9_2y5yt")]
-position = Vector2(1878, 47)
-rotation = -0.43633232
+[node name="Static_Platform2" parent="Platforms" instance=ExtResource("9_2y5yt")]
+position = Vector2(1877, 47)
+rotation = -0.43633235
 scale = Vector2(5, 5)
 texture = ExtResource("11_2os1m")
 
-[node name="Static_Platform3" parent="." instance=ExtResource("9_2y5yt")]
-position = Vector2(2245.9998, -7.9999466)
+[node name="Static_Platform3" parent="Platforms" instance=ExtResource("9_2y5yt")]
+position = Vector2(2244.9998, -7.9999466)
 rotation = -0.5235988
 scale = Vector2(5, 5)
 texture = ExtResource("10_2os1m")
 
-[node name="Static_Platform4" parent="." instance=ExtResource("9_2y5yt")]
-position = Vector2(2520, -426.99988)
-rotation = 0.43633232
+[node name="Static_Platform4" parent="Platforms" instance=ExtResource("9_2y5yt")]
+position = Vector2(2519, -426.99988)
+rotation = 0.43633235
 scale = Vector2(5, 5)
 texture = ExtResource("10_2os1m")
 
-[node name="jumppad3" parent="." instance=ExtResource("5_4nkto")]
-position = Vector2(3021.0002, -171)
+[node name="jumppad3" parent="Platforms" instance=ExtResource("5_4nkto")]
+position = Vector2(3020.0002, -171)
 scale = Vector2(2.5, 2.5)
