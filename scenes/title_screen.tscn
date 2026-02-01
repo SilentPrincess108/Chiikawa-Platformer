@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4nyjn34pjufh"]
+
+[ext_resource type="Script" uid="uid://dprlp8iqi0b3j" path="res://scripts/title_screen.gd" id="1_fgkus"]
+[ext_resource type="FontFile" uid="uid://5xdkn1hj6d3r" path="res://assets/fonts/Mansalva-Regular.ttf" id="2_sa3yf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgkus"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sa3yf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4lrb"]
+
+[node name="Title_Screen" type="Node2D"]
+script = ExtResource("1_fgkus")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 416.0
+offset_top = 211.0
+offset_right = 687.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_sa3yf")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_fgkus")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sa3yf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4lrb")
+text = "Start"
+
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 416.0
+offset_top = 294.0
+offset_right = 687.0
+offset_bottom = 377.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_sa3yf")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_fgkus")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sa3yf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s4lrb")
+text = "Quit"
+
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

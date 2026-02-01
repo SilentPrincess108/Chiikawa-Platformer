@@ -402,7 +402,7 @@ text = "falling fruit!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="falling fruit2" type="Label" parent="labels"]
+[node name="stack" type="Label" parent="labels"]
 offset_left = 3334.0
 offset_top = -649.0
 offset_right = 3675.0
@@ -412,6 +412,19 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("16_1s4pk")
 theme_override_font_sizes/font_size = 30
 text = "stack em up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="made it" type="Label" parent="labels"]
+offset_left = 813.0
+offset_top = -1255.0
+offset_right = 1154.0
+offset_bottom = -1175.0
+theme_override_colors/font_outline_color = Color(0.51, 0.51, 0.51, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_1s4pk")
+theme_override_font_sizes/font_size = 30
+text = "you made it!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
