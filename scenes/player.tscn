@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1vfb7dhdx501"]
+[gd_scene load_steps=25 format=3 uid="uid://b1vfb7dhdx501"]
 
 [ext_resource type="Script" uid="uid://c17jjeis4bnho" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://shotmxquf7ae" path="res://assets/sprites/chiikawa_idle.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://t2e2l6nrjp38" path="res://assets/sprites/chiikawa_walk.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://dtj6f08yac632" path="res://assets/sprites/chiikawa_jump.png" id="3_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://b0tm8mtc0tml3" path="res://assets/sfx/jump.wav" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_dqkch")
@@ -168,3 +169,7 @@ limit_left = 0
 limit_bottom = 650
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qlg0r")
+volume_db = -20.0

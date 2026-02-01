@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export_range(0, 1) var acceleration = 0.3
 @export_range(0, 1) var decelerate_on_jump_release = 0.5
 @onready var animated_sprite: AnimatedSprite2D = $Sprite2D
+@onready var jump_sfx: AudioStreamPlayer = $AudioStreamPlayer
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
@@ -43,6 +44,7 @@ func get_input():
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump"):
 		velocity.y = JUMP_VELOCITY
+		jump_sfx.play()
 	
 	if Input.is_action_just_released("Jump") and velocity.y < 0:
 		velocity.y *= decelerate_on_jump_release
