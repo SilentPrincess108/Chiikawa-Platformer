@@ -8,4 +8,5 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1.0
+	Globals.money = 0
 	get_tree().reload_current_scene()

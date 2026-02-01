@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bavvturxtqo7r"]
+
+[ext_resource type="Texture2D" uid="uid://bhha3l0nkx3tx" path="res://assets/sprites/pancake.png" id="1_ms375"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tdcd"]
+size = Vector2(26, 22)
+
+[node name="Moving_Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ms375")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_1tdcd")

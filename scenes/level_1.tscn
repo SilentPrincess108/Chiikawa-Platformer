@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dm7cnjbds4vk8"]
+[gd_scene load_steps=25 format=3 uid="uid://dm7cnjbds4vk8"]
 
 [ext_resource type="PackedScene" uid="uid://b1vfb7dhdx501" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="2_rus8k"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://036fljnf5qkv" path="res://assets/sprites/spoon.png" id="11_2os1m"]
 [ext_resource type="PackedScene" uid="uid://b5asvdweqsuyg" path="res://scenes/coins.tscn" id="13_7gny6"]
 [ext_resource type="PackedScene" uid="uid://bu4ll6kkktm4m" path="res://scenes/hud.tscn" id="14_2aecg"]
+[ext_resource type="PackedScene" uid="uid://bavvturxtqo7r" path="res://scenes/moving_platform.tscn" id="15_6dial"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xbjy"]
 texture = ExtResource("2_rus8k")
@@ -54,12 +55,89 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_5xbjy")
 sources/1 = SubResource("TileSetAtlasSource_7gny6")
 
+[sub_resource type="Animation" id="Animation_7nomh"]
+resource_name = "up_down"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2235, -437), Vector2(2235, -671.00006)]
+}
+
+[sub_resource type="Animation" id="Animation_1s4pk"]
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1947, -436.00003), Vector2(1947.0001, -695)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x2xxo"]
+_data = {
+&"RESET": SubResource("Animation_1s4pk"),
+&"up_down": SubResource("Animation_7nomh")
+}
+
+[sub_resource type="Animation" id="Animation_6dial"]
+resource_name = "down_up"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1567, -752), Vector2(1967, -752)]
+}
+
+[sub_resource type="Animation" id="Animation_x2xxo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2003, -435)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cbcq"]
+_data = {
+&"RESET": SubResource("Animation_x2xxo"),
+&"down_up": SubResource("Animation_6dial")
+}
+
 [node name="level_1" type="Node2D"]
 position = Vector2(-1, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_014kd")]
 z_index = 10
-position = Vector2(176, 473)
+position = Vector2(139, 517)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -214,6 +292,10 @@ texture = ExtResource("10_2os1m")
 position = Vector2(3020.0002, -171)
 scale = Vector2(2.5, 2.5)
 
+[node name="Platform3" parent="Platforms" instance=ExtResource("6_fcfvj")]
+position = Vector2(2091, -734)
+sprite = ExtResource("7_15mv3")
+
 [node name="Coins" type="Node" parent="."]
 
 [node name="coins" parent="Coins" instance=ExtResource("13_7gny6")]
@@ -231,4 +313,29 @@ position = Vector2(1444, -6)
 scale = Vector2(1.5, 1.5)
 collision_mask = 3
 
+[node name="coins4" parent="Coins" instance=ExtResource("13_7gny6")]
+position = Vector2(947, 415)
+scale = Vector2(1.5, 1.5)
+collision_mask = 3
+
 [node name="HUD" parent="." instance=ExtResource("14_2aecg")]
+
+[node name="Moving_Platform" parent="." instance=ExtResource("15_6dial")]
+position = Vector2(1947, -436.00003)
+scale = Vector2(3.5, 3.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Moving_Platform"]
+libraries = {
+&"": SubResource("AnimationLibrary_x2xxo")
+}
+autoplay = "up_down"
+
+[node name="Moving_Platform2" parent="." instance=ExtResource("15_6dial")]
+position = Vector2(2003, -435)
+scale = Vector2(3.5, 3.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Moving_Platform2"]
+libraries = {
+&"": SubResource("AnimationLibrary_2cbcq")
+}
+autoplay = "down_up"
