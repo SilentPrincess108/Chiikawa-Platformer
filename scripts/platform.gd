@@ -10,7 +10,6 @@ func _ready() -> void:
 	sprite_2d.texture = sprite
 
 func _on_area_2d_body_entered(_body: CharacterBody2D) -> void:
-	print("Player on platform")
 	timer.start()
 
 func _on_timer_timeout() -> void:
