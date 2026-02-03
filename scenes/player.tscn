@@ -163,13 +163,6 @@ frame_progress = 0.1739
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_f50pn")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
-limit_left = 0
-limit_bottom = 650
-limit_smoothed = true
-position_smoothing_enabled = true
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qlg0r")
 volume_db = -20.0
