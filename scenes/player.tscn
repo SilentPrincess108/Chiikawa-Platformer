@@ -1,10 +1,27 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1vfb7dhdx501"]
+[gd_scene load_steps=30 format=3 uid="uid://b1vfb7dhdx501"]
 
 [ext_resource type="Script" uid="uid://c17jjeis4bnho" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://shotmxquf7ae" path="res://assets/sprites/chiikawa_idle.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://t2e2l6nrjp38" path="res://assets/sprites/chiikawa_walk.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://dfxfv4mvpw03o" path="res://assets/sprites/chiikawa_dead.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://dtj6f08yac632" path="res://assets/sprites/chiikawa_jump.png" id="3_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://b0tm8mtc0tml3" path="res://assets/sfx/jump.wav" id="5_qlg0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
+atlas = ExtResource("2_tuyoq")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_dqkch")
@@ -76,6 +93,23 @@ region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oprun"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ni07")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_smehm")
@@ -154,10 +188,8 @@ script = ExtResource("1_g2els")
 position = Vector2(-2.27374e-13, -2.27374e-13)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oprun")
-animation = &"jump"
+animation = &"death"
 autoplay = "idle"
-frame = 5
-frame_progress = 0.1739
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -166,3 +198,8 @@ shape = SubResource("RectangleShape2D_f50pn")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qlg0r")
 volume_db = -20.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

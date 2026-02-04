@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dm7cnjbds4vk8"]
+[gd_scene load_steps=31 format=3 uid="uid://dm7cnjbds4vk8"]
 
 [ext_resource type="PackedScene" uid="uid://b1vfb7dhdx501" path="res://scenes/player.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="2_rus8k"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c1m25dqn1xhew" path="res://assets/sprites/big_pancake.png" id="14_7nomh"]
 [ext_resource type="PackedScene" uid="uid://bavvturxtqo7r" path="res://scenes/moving_platform.tscn" id="15_6dial"]
 [ext_resource type="FontFile" uid="uid://5xdkn1hj6d3r" path="res://assets/fonts/Mansalva-Regular.ttf" id="16_1s4pk"]
+[ext_resource type="PackedScene" uid="uid://dpg5k1go0prwc" path="res://scenes/door.tscn" id="18_x2xxo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xbjy"]
 texture = ExtResource("2_rus8k")
@@ -176,7 +177,7 @@ position = Vector2(-1, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_014kd")]
 z_index = 10
-position = Vector2(114, 505)
+position = Vector2(187, 509)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
@@ -436,3 +437,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HUD" parent="." instance=ExtResource("14_2aecg")]
+
+[node name="door" parent="." instance=ExtResource("18_x2xxo")]
+z_index = 10
+position = Vector2(793, -1071)
+scale = Vector2(2, 2)

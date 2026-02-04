@@ -1,11 +1,13 @@
-[gd_scene load_steps=43 format=3 uid="uid://p1kdpslxu20a"]
+[gd_scene load_steps=48 format=3 uid="uid://p1kdpslxu20a"]
 
+[ext_resource type="Script" uid="uid://dh5f4qdrpsds7" path="res://scripts/cutscene.gd" id="1_d18fx"]
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="1_edmg7"]
 [ext_resource type="Texture2D" uid="uid://dgjis3a5sump" path="res://assets/sprites/tree.png" id="2_0sipp"]
 [ext_resource type="Texture2D" uid="uid://shotmxquf7ae" path="res://assets/sprites/chiikawa_idle.png" id="4_2bm7f"]
 [ext_resource type="PackedScene" uid="uid://dsp36qsjybc5g" path="res://scenes/npc.tscn" id="4_fs8wb"]
 [ext_resource type="Texture2D" uid="uid://bnjwv0lbnjij" path="res://assets/sprites/hachiware_idle.png" id="5_bb0yx"]
 [ext_resource type="Texture2D" uid="uid://cvrohja0p0evj" path="res://assets/sprites/usagi_idle.png" id="6_bb0yx"]
+[ext_resource type="Script" uid="uid://bi8dicg78ua2b" path="res://scripts/h_1.gd" id="7_3ptll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a320b"]
 texture = ExtResource("1_edmg7")
@@ -98,6 +100,33 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_bb0yx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(360, 548)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_fs8wb"]
 resource_name = "cutscene"
 length = 20.0
@@ -124,33 +153,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_bb0yx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(360, 548)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bb0yx"]
@@ -209,6 +211,33 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_d18fx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(758, 549)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_3ptll"]
 resource_name = "cutscene"
 length = 20.0
@@ -235,33 +264,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_d18fx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(758, 549)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_75brc"]
@@ -320,6 +322,33 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_wxq4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(365, 551)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_v50sc"]
 resource_name = "cutscene"
 length = 20.0
@@ -348,51 +377,88 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_wxq4c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(365, 551)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q01xw"]
 _data = {
 &"RESET": SubResource("Animation_wxq4c"),
 &"cutscene": SubResource("Animation_v50sc")
 }
 
-[sub_resource type="FontVariation" id="FontVariation_fs8wb"]
+[sub_resource type="Animation" id="Animation_ury3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("h1:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
-[sub_resource type="Animation" id="Animation_75brc"]
+[sub_resource type="Animation" id="Animation_q01xw"]
 resource_name = "cutscene"
-length = 10.0
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("h1:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.53333336, 1.0333333),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v50sc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ury3t"]
 _data = {
-&"cutscene": SubResource("Animation_75brc")
+&"RESET": SubResource("Animation_ury3t"),
+&"cutscene": SubResource("Animation_q01xw")
+}
+
+[sub_resource type="Animation" id="Animation_8qop0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m2h23"]
+resource_name = "cutscene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mu2gi"]
+_data = {
+&"RESET": SubResource("Animation_8qop0"),
+&"cutscene": SubResource("Animation_m2h23")
 }
 
 [node name="cutscene" type="Node"]
+script = ExtResource("1_d18fx")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0sipp")
@@ -452,20 +518,54 @@ libraries = {
 }
 autoplay = "cutscene"
 
-[node name="cc" type="Node" parent="."]
-
-[node name="Label" type="Label" parent="cc"]
-visible = false
-offset_left = 434.0
-offset_top = 578.0
-offset_right = 563.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 415.0
+offset_top = 569.0
+offset_right = 702.0
 offset_bottom = 611.0
-theme_override_fonts/font = SubResource("FontVariation_fs8wb")
-theme_override_font_sizes/font_size = 12
-text = "Hey, Chiikawa!"
+
+[node name="h1" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 14.0
+offset_right = 113.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+text = "Hey Chiikawa"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_3ptll")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/h1"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ury3t")
+}
+autoplay = "cutscene"
+
+[node name="Timer" type="Timer" parent="Control/h1"]
+wait_time = 0.5
+
+[node name="c1" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 12.0
+offset_right = 269.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+text = "Yup?"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="cc/Label"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/c1"]
 libraries = {
-&"": SubResource("AnimationLibrary_v50sc")
+&"": SubResource("AnimationLibrary_mu2gi")
 }
+autoplay = "cutscene"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

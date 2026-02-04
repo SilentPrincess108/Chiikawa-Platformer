@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export_range(0, 1) var decelerate_on_jump_release = 0.5
 @onready var animated_sprite: AnimatedSprite2D = $Sprite2D
 @onready var jump_sfx: AudioStreamPlayer = $AudioStreamPlayer
+@onready var timer: Timer = $Timer
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
@@ -55,3 +56,12 @@ func get_input():
 		velocity.x = move_toward(velocity.x, 0, SPEED * deceleration)
 
 	move_and_slide()
+
+func death():
+	animated_sprite.play("death")
+	timer.start()
+	
+func _on_timer_timeout() -> void:
+	Engine.time_scale = 1.0
+	Globals.money = 0
+	get_tree().reload_current_scene()
