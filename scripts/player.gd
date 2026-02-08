@@ -18,6 +18,8 @@ func _physics_process(delta) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += get_grav(velocity) * delta
+	if Globals.dead:
+		return
 	get_input()
 
 func get_grav(velocity: Vector2): #change gravity when jumping and falling
@@ -59,9 +61,11 @@ func get_input():
 
 func death():
 	animated_sprite.play("death")
+	Engine.time_scale = 0.5
 	timer.start()
 	
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1.0
 	Globals.money = 0
+	Globals.dead = false
 	get_tree().reload_current_scene()
