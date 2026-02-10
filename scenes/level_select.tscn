@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://csu1ip4eoph2p"]
+
+[ext_resource type="Texture2D" uid="uid://bh0fy5yqy8isa" path="res://assets/sprites/test_buttons.png" id="1_3shnc"]
+[ext_resource type="Script" uid="uid://cl74h0furp1al" path="res://scripts/level_select.gd" id="1_p0wlc"]
+[ext_resource type="Script" uid="uid://d2fn28rn8eg6p" path="res://scripts/level_button.gd" id="3_2epne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3shnc"]
+atlas = ExtResource("1_3shnc")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0wlc"]
+atlas = ExtResource("1_3shnc")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2epne"]
+atlas = ExtResource("1_3shnc")
+region = Rect2(600, 0, 300, 300)
+
+[node name="level_select" type="Node2D"]
+script = ExtResource("1_p0wlc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1169.0
+offset_bottom = 662.0
+color = Color(0.60193866, 0.2672198, 0.30336294, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="level1" type="TextureButton" parent="."]
+offset_left = 434.0
+offset_top = 180.0
+offset_right = 734.0
+offset_bottom = 480.0
+texture_normal = SubResource("AtlasTexture_3shnc")
+texture_pressed = SubResource("AtlasTexture_p0wlc")
+texture_hover = SubResource("AtlasTexture_2epne")
+script = ExtResource("3_2epne")
+
+[connection signal="pressed" from="level1" to="." method="_on_texture_button_pressed"]
