@@ -1,7 +1,10 @@
 extends Node2D
 
-@onready var level_1: TextureButton = $level1
 
 
-func _on_texture_button_pressed() -> void:
+func _on_level_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
+
+
+func _on_level_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/levels/level_2.tscn")

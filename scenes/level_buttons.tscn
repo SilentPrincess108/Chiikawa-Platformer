@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcfrx7htabqh8"]
+
+[ext_resource type="Script" uid="uid://d2fn28rn8eg6p" path="res://scripts/level_button.gd" id="1_2dylg"]
+[ext_resource type="Texture2D" uid="uid://bh0fy5yqy8isa" path="res://assets/sprites/test_buttons.png" id="1_82htg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn1xm"]
+atlas = ExtResource("1_82htg")
+region = Rect2(0, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8dnf"]
+atlas = ExtResource("1_82htg")
+region = Rect2(300, 0, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylbqs"]
+atlas = ExtResource("1_82htg")
+region = Rect2(600, 0, 300, 300)
+
+[node name="level_button" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("AtlasTexture_fn1xm")
+texture_pressed = SubResource("AtlasTexture_b8dnf")
+texture_hover = SubResource("AtlasTexture_ylbqs")
+script = ExtResource("1_2dylg")
