@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjm2a7j2oqq6f"]
+[gd_scene load_steps=7 format=3 uid="uid://bjm2a7j2oqq6f"]
 
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="1_yio8x"]
 [ext_resource type="PackedScene" uid="uid://b1vfb7dhdx501" path="res://scenes/player.tscn" id="2_7e82i"]
 [ext_resource type="PackedScene" uid="uid://qgqy6brjm8c6" path="res://scenes/boundry.tscn" id="3_hcr8q"]
+[ext_resource type="PackedScene" uid="uid://d2upjd6058dmd" path="res://scenes/ingredient.tscn" id="4_b2bua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7e82i"]
 texture = ExtResource("1_yio8x")
@@ -43,3 +44,6 @@ rotation = 1.5707964
 [node name="boundry2" parent="." instance=ExtResource("3_hcr8q")]
 position = Vector2(1157, 153)
 rotation = -1.5707964
+
+[node name="ingredient" parent="." instance=ExtResource("4_b2bua")]
+position = Vector2(67, -50)
