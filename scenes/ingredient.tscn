@@ -1,18 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2upjd6058dmd"]
+[gd_scene load_steps=4 format=3 uid="uid://d2upjd6058dmd"]
 
 [ext_resource type="Script" uid="uid://b30653e5ewblp" path="res://scripts/ingredient.gd" id="1_rcex7"]
+[ext_resource type="Texture2D" uid="uid://c2h5jhkadb3ym" path="res://assets/sprites/bread.png" id="2_ssx0k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rcex7"]
-radius = 17.0
+radius = 17.029387
 
-[node name="RigidBody2D" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 7
+[node name="ingredient" type="Node2D"]
 script = ExtResource("1_rcex7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_ssx0k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(2.5, 2.5)
 shape = SubResource("CircleShape2D_rcex7")

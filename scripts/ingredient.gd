@@ -8,13 +8,15 @@ var textNum: int = 0
 
 func _ready() -> void:
 	genRandTexture()
+	position.y = -50
 	
+func reload():
+	genRandTexture()
 
 func genRandTexture():
 	textNum = randi_range(0, textures.size() - 1)
 	texture = load("res://assets/sprites/" + textures[textNum] + ".png")
 	sprite.texture = texture
-
 
 func _on_item_boundry_on_ground() -> void:
 	queue_free()
