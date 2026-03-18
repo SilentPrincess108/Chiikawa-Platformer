@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://b1vfb7dhdx501"]
+[gd_scene load_steps=36 format=3 uid="uid://b1vfb7dhdx501"]
 
 [ext_resource type="Script" uid="uid://c17jjeis4bnho" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://shotmxquf7ae" path="res://assets/sprites/chiikawa_idle.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://t2e2l6nrjp38" path="res://assets/sprites/chiikawa_walk.png" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://dfxfv4mvpw03o" path="res://assets/sprites/chiikawa_dead.png" id="2_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://dtj6f08yac632" path="res://assets/sprites/chiikawa_jump.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bd18mmhooeqjb" path="res://assets/sprites/chiikawa-plate.png" id="5_fjrip"]
 [ext_resource type="AudioStream" uid="uid://b0tm8mtc0tml3" path="res://assets/sfx/jump.wav" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
@@ -46,6 +47,26 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
 atlas = ExtResource("2_dqkch")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("3_qlg0r")
@@ -135,6 +156,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujl30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf23h")
+}],
+"loop": true,
+"name": &"idle_plate",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oprun")
 }, {
 "duration": 1.0,
@@ -188,10 +229,8 @@ script = ExtResource("1_g2els")
 position = Vector2(-2.27374e-13, -2.27374e-13)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_oprun")
-animation = &"death"
+animation = &"idle_plate"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

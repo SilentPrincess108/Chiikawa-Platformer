@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var ingredient: Node2D = $ingredients
+@onready var player: CharacterBody2D = $Player
 
 var pos: int = 0
 var ingredients = preload("res://scenes/ingredient.tscn")
@@ -9,6 +10,7 @@ var item = ingredients.instantiate()
 func _ready():
 	getPos()
 	add_child(item)
+	player.get_node("Sprite2D").play("plate")
 
 func _physics_process(delta: float) -> void:
 	#add if statement to check if ingredient is removed or falling

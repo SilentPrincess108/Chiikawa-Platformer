@@ -42,7 +42,10 @@ func get_input():
 	elif not is_on_floor():
 		animated_sprite.play("jump")
 	else:
-		animated_sprite.play("idle")
+		if Globals.gameMode == "collection":
+			animated_sprite.play("idle_plate")
+		else:
+			animated_sprite.play("idle")
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump"):

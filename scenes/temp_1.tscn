@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjm2a7j2oqq6f"]
+[gd_scene load_steps=9 format=3 uid="uid://bjm2a7j2oqq6f"]
 
 [ext_resource type="Script" uid="uid://c4s7munjbkgev" path="res://scripts/temp_1.gd" id="1_kpsv8"]
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="1_yio8x"]
@@ -24,6 +24,9 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7e82i")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpsv8"]
+size = Vector2(59, 20)
+
 [node name="temp_1" type="Node2D"]
 script = ExtResource("1_kpsv8")
 
@@ -38,6 +41,12 @@ layer_1/tile_data = PackedInt32Array(1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0
 [node name="Player" parent="." instance=ExtResource("2_7e82i")]
 position = Vector2(188, 494)
 scale = Vector2(2, 2)
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_kpsv8")
 
 [node name="boundry" parent="." instance=ExtResource("3_hcr8q")]
 position = Vector2(-3, 37)

@@ -8,6 +8,12 @@ var levels = { #dict. to keep track of locked/unlocked levels
 	"level_2": false,
 }
 
+var gameTypes = {
+	"collection":true,
+	"platformer":false
+}
+var gameMode: String = ""
+
 var foods = {
 	"apple":false,
 	"strawberry":false,
@@ -20,6 +26,7 @@ var level_ID: String = "" #string to identify level
 
 func _ready() -> void:
 	money = 0
+	setGameMode()
 	
 #function to update the lock state of a level
 func unlock_level():
@@ -28,6 +35,11 @@ func unlock_level():
 
 func update_food(name: String):
 	foods[name] = true
+
+func setGameMode():
+	for mode in gameTypes:
+		if gameTypes[mode]:
+			gameMode = mode
 
 #function to check if level is unlocked;
 #to prevent level num increasing after replaying a level
