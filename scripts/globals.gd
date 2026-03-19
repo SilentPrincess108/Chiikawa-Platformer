@@ -51,3 +51,8 @@ func check_level():
 	if (levels[level_ID]):
 		return false
 	return true
+
+func resetValues():
+	lives = 5
+	points = 0
+	money = 0 

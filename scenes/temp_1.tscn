@@ -86,15 +86,51 @@ theme_override_font_sizes/font_size = 40
 text = "Lives:"
 
 [node name="Ingredients" type="Label" parent="HUD"]
-offset_left = 915.0
+offset_left = 905.0
 offset_top = 8.0
-offset_right = 1136.0
+offset_right = 1126.0
 offset_bottom = 72.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9372549)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("6_of6kg")
 theme_override_font_sizes/font_size = 40
 text = "Ingredients:"
+
+[node name="Items" type="HBoxContainer" parent="HUD"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -345.0
+offset_top = -233.0
+offset_right = 6.413086
+offset_bottom = -180.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="item1" type="TextureRect" parent="HUD/Items"]
+layout_mode = 2
+expand_mode = 3
+
+[node name="item2" type="TextureRect" parent="HUD/Items"]
+layout_mode = 2
+expand_mode = 3
+
+[node name="item3" type="TextureRect" parent="HUD/Items"]
+layout_mode = 2
+expand_mode = 3
+
+[node name="item4" type="TextureRect" parent="HUD/Items"]
+layout_mode = 2
+expand_mode = 3
+
+[node name="item5" type="TextureRect" parent="HUD/Items"]
+layout_mode = 2
+expand_mode = 3
 
 [connection signal="area_entered" from="Player/plate" to="." method="_on_plate_area_entered"]
 [connection signal="on_ground" from="item_boundry" to="." method="_on_item_boundry_on_ground"]

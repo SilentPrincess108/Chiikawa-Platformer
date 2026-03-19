@@ -6,6 +6,13 @@ extends Node2D
 @onready var score: Label = $HUD/Score
 @onready var lives: Label = $HUD/Lives
 
+@onready var item1: TextureRect = $HUD/Items/item1
+@onready var item2: TextureRect = $HUD/Items/item2
+@onready var item3: TextureRect = $HUD/Items/item3
+@onready var item4: TextureRect = $HUD/Items/item4
+@onready var item5: TextureRect = $HUD/Items/item5
+
+@onready var items = [item1, item2, item3, item4, item5]
 
 var pos: int = 0
 var ingredients = preload("res://scenes/ingredient.tscn")
@@ -40,10 +47,17 @@ func setItems():
 	sandoCombo[itemTypes[0]] = false
 	for num in range(numItems):
 		sandoCombo[itemTypes[randi_range(1, 4)]] = false
+	
+	#set hud element
+	var itemCount = 0
+	for key in sandoCombo:
+		items[itemCount].texture = load("res://assets/sprites/" + key + ".png")
+		itemCount += 1
 
 func printCombo():
 	for key in sandoCombo:
 		print(key + ": " + str(sandoCombo[key]))
+	print("")
 
 func resetItem(item):
 	item.reload()
@@ -59,11 +73,18 @@ func _on_plate_area_entered(area: Area2D) -> void:
 	resetItem(item)
 
 func checkItem(item):
-	for items in sandoCombo:
-		if sandoCombo[items]:
-			continue
+	if sandoCombo.has(item.type):
+		print("in combo")
+		if sandoCombo[item.type] == false:
+			Globals.points += 5
+			sandoCombo[item.type] = true
 		else:
-			if item.type == items:
-				sandoCombo[items] = true
-				Globals.points += 5
+			Globals.lives -= 1
+	else:
+		Globals.lives -= 1
+	
+	if Globals.lives == 0:
+		Globals.dead = true
+		player.death()
+	
 	printCombo()
