@@ -34,7 +34,10 @@ func get_input():
 	
 	#handle animation
 	if is_on_floor() and direction:
-		animated_sprite.play("walk")
+		if Globals.gameMode == "collection":
+			animated_sprite.play("walk_plate")
+		else:
+			animated_sprite.play("walk")
 		if direction >= 1:
 			animated_sprite.flip_h = false
 		else:
