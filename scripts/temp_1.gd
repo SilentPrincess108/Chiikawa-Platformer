@@ -5,7 +5,10 @@ extends Node2D
 @onready var plate: Area2D = $Player/plate
 @onready var score: Label = $HUD/Score
 @onready var lives: Label = $HUD/Lives
+@onready var next: Label = $HUD/Next
 
+
+@onready var itemBox: HBoxContainer = $HUD/Items
 @onready var item1: TextureRect = $HUD/Items/item1
 @onready var item2: TextureRect = $HUD/Items/item2
 @onready var item3: TextureRect = $HUD/Items/item3
@@ -14,6 +17,8 @@ extends Node2D
 
 @onready var items = [item1, item2, item3, item4, item5]
 
+@onready var timer: Timer = $Timer
+
 var pos: int = 0
 var ingredients = preload("res://scenes/ingredient.tscn")
 var item = ingredients.instantiate()
@@ -21,12 +26,15 @@ var item = ingredients.instantiate()
 var numItems: int = 0
 var itemTypes = ["bread", "cheese", "tomato", "lettuce", "meat-slice"]
 var sandoCombo = {}
-
+var comboComplete: bool = false
+var rounds: int = 5
+	
 func _ready():
 	getPos()
 	add_child(item)
 	setItems()
 	printCombo()
+	next.hide()
 	
 
 func _physics_process(delta: float) -> void:
@@ -74,10 +82,14 @@ func _on_plate_area_entered(area: Area2D) -> void:
 
 func checkItem(item):
 	if sandoCombo.has(item.type):
-		print("in combo")
 		if sandoCombo[item.type] == false:
 			Globals.points += 5
 			sandoCombo[item.type] = true
+			
+			for num in range(sandoCombo.size()):
+				if items[num].texture == item.texture:
+					items[num].texture = load("res://assets/sprites/" + item.type + "-check.png")
+					break
 		else:
 			Globals.lives -= 1
 	else:
@@ -87,4 +99,42 @@ func checkItem(item):
 		Globals.dead = true
 		player.death()
 	
+	#testing	
 	printCombo()
+
+	checkCombo()
+	if comboComplete:
+		nextRound()
+
+func checkCombo():
+	for key in sandoCombo:
+		if sandoCombo[key] == false:
+			print("incomplete combo")
+			return
+	print("combo complete")
+	comboComplete = true
+	
+func nextRound():
+	itemBox.hide()
+	comboComplete = false
+	sandoCombo.clear()
+	setItems()
+	for e in range(items.size()):
+		items[e].texture = null
+	next.show()
+	timer.start()
+
+func _on_timer_timeout() -> void:
+	next.hide()
+	itemBox.show()
+
+#this code is lwk making me go inside. I'm rlly rlly bored of
+#this project. I'm rlly only completing it for the sake of completing
+#it because I have a habit of starting projects and then abandoning them.
+#How do I make this more exciting? Idk, I'm trying to enjoy the process
+#but the process of making smth I'm not entirely interested in isn't exactly
+#enjoyable. Ik that by doing this, I'm giving myself more experience with godot and
+#whatever but I'd so much rather start making smth else. Writing this as a reflection ig,
+#but I know I just gotta push through. I need to actually make smth complete for once.
+#After a break, I'm going to try and fix this bug. Once it's fixed, I'll move onto adding
+#difficulty to this level and polishing it. Then it should be finished!
