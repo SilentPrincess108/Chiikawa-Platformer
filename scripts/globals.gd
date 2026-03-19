@@ -2,6 +2,8 @@ extends Node
 
 var money: int = 0 #implement level money; separate from total money
 var dead: bool = false #player state
+var points: int = 0
+var lives: int = 5
 
 var levels = { #dict. to keep track of locked/unlocked levels
 	"level_1": true,

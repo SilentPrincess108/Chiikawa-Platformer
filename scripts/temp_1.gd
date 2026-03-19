@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var ingredient: Node2D = $ingredients
 @onready var player: CharacterBody2D = $Player
-
 @onready var plate: Area2D = $Player/plate
+@onready var score: Label = $HUD/Score
+@onready var lives: Label = $HUD/Lives
+
 
 var pos: int = 0
 var ingredients = preload("res://scenes/ingredient.tscn")
@@ -24,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	#add if statement to check if ingredient is removed or falling
 	item.position.x = pos #add to separate function
 	item.position.y += 250 * delta
+	score.text = "Score: " + str(Globals.points)
+	lives.text = "Lives: " + str(Globals.lives)
 
 func getPos():
 	pos = randi_range(100, 900)
@@ -61,4 +65,5 @@ func checkItem(item):
 		else:
 			if item.type == items:
 				sandoCombo[items] = true
+				Globals.points += 5
 	printCombo()

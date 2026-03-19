@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjm2a7j2oqq6f"]
+[gd_scene load_steps=10 format=3 uid="uid://bjm2a7j2oqq6f"]
 
 [ext_resource type="Script" uid="uid://c4s7munjbkgev" path="res://scripts/temp_1.gd" id="1_kpsv8"]
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="1_yio8x"]
 [ext_resource type="PackedScene" uid="uid://b1vfb7dhdx501" path="res://scenes/player.tscn" id="2_7e82i"]
 [ext_resource type="PackedScene" uid="uid://qgqy6brjm8c6" path="res://scenes/boundry.tscn" id="3_hcr8q"]
 [ext_resource type="PackedScene" uid="uid://d1wun65is8wxy" path="res://scenes/item_boundry.tscn" id="6_f7str"]
+[ext_resource type="FontFile" uid="uid://5xdkn1hj6d3r" path="res://assets/fonts/Mansalva-Regular.ttf" id="6_of6kg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7e82i"]
 texture = ExtResource("1_yio8x")
@@ -59,6 +60,41 @@ rotation = -1.5707964
 
 [node name="item_boundry" parent="." instance=ExtResource("6_f7str")]
 position = Vector2(576, 558)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="HUD"]
+offset_left = 18.0
+offset_top = 7.0
+offset_right = 172.0
+offset_bottom = 71.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9372549)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_of6kg")
+theme_override_font_sizes/font_size = 40
+text = "Score:"
+
+[node name="Lives" type="Label" parent="HUD"]
+offset_left = 18.0
+offset_top = 75.0
+offset_right = 172.0
+offset_bottom = 139.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9372549)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_of6kg")
+theme_override_font_sizes/font_size = 40
+text = "Lives:"
+
+[node name="Ingredients" type="Label" parent="HUD"]
+offset_left = 915.0
+offset_top = 8.0
+offset_right = 1136.0
+offset_bottom = 72.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9372549)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_of6kg")
+theme_override_font_sizes/font_size = 40
+text = "Ingredients:"
 
 [connection signal="area_entered" from="Player/plate" to="." method="_on_plate_area_entered"]
 [connection signal="on_ground" from="item_boundry" to="." method="_on_item_boundry_on_ground"]
