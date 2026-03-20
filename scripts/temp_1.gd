@@ -7,6 +7,8 @@ extends Node2D
 @onready var lives: Label = $HUD/Lives
 @onready var next: Label = $HUD/Next
 @onready var hud: CanvasLayer = $HUD
+@onready var game_over: CanvasLayer = $game_over
+
 
 
 @onready var itemBox: HBoxContainer = $HUD/Items
@@ -36,6 +38,7 @@ func _ready():
 	setItems()
 	printCombo()
 	next.hide()
+	game_over.hide()
 	
 
 func _physics_process(delta: float) -> void:
@@ -44,6 +47,11 @@ func _physics_process(delta: float) -> void:
 	item.position.y += 250 * delta
 	score.text = "Score: " + str(Globals.points)
 	lives.text = "Lives: " + str(Globals.lives)
+	if Globals.dead:
+		get_tree().paused = true
+		hud.hide()
+		game_over.show()
+		
 
 func getPos():
 	pos = randi_range(100, 900)
@@ -99,9 +107,6 @@ func checkItem(item):
 	if Globals.lives == 0:
 		Globals.dead = true
 		player.death()
-	
-	#testing	
-	printCombo()
 
 	checkCombo()
 	if comboComplete:

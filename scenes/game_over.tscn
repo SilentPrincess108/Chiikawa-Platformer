@@ -8,7 +8,8 @@
 shader = ExtResource("1_xeevv")
 shader_parameter/blur_amount = 1.5
 
-[node name="game_over" type="Node2D"]
+[node name="game_over" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_tbwuq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -19,29 +20,8 @@ offset_bottom = 662.0
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1153.0
-offset_bottom = 648.0
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -188.5
-offset_top = -165.0
-offset_right = 188.5
-offset_bottom = -38.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("2_wqhvx")
-theme_override_font_sizes/font_size = 80
-text = "Game Over"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Restart" type="Button" parent="Control"]
 layout_mode = 1
@@ -50,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.5
-offset_top = 18.0
-offset_right = 108.5
-offset_bottom = 79.0
+offset_left = 434.0
+offset_top = 334.0
+offset_right = 678.0
+offset_bottom = 399.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_wqhvx")
@@ -67,15 +47,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.5
-offset_top = 104.0
-offset_right = 108.5
-offset_bottom = 165.0
+offset_left = 434.0
+offset_top = 419.75
+offset_right = 678.0
+offset_bottom = 485.25
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_wqhvx")
 theme_override_font_sizes/font_size = 30
 text = "Back"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 367.5
+offset_top = 135.0
+offset_right = 744.5
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]

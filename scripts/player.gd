@@ -67,11 +67,11 @@ func get_input():
 
 func death():
 	animated_sprite.play("death")
-	Engine.time_scale = 0.5
+	#Engine.time_scale = 0.5
 	timer.start()
 	
 func _on_timer_timeout() -> void:
-	Engine.time_scale = 1.0
+	#Engine.time_scale = 1.0
 	Globals.resetValues()
 	Globals.dead = false
 	#get_tree().reload_current_scene()
