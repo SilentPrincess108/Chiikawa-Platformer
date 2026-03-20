@@ -8,6 +8,7 @@ extends Node2D
 @onready var next: Label = $HUD/Next
 @onready var hud: CanvasLayer = $HUD
 @onready var game_over: CanvasLayer = $game_over
+@onready var level_complete: CanvasLayer = $level_complete
 
 
 
@@ -39,6 +40,7 @@ func _ready():
 	printCombo()
 	next.hide()
 	game_over.hide()
+	level_complete.hide()
 	
 
 func _physics_process(delta: float) -> void:
@@ -51,6 +53,10 @@ func _physics_process(delta: float) -> void:
 		get_tree().paused = true
 		hud.hide()
 		game_over.show()
+	if Globals.win:
+		get_tree().paused = true
+		hud.hide()
+		level_complete.show()
 		
 
 func getPos():
@@ -130,6 +136,8 @@ func nextRound():
 	next.show()
 	timer.start()
 	rounds -= 1
+	if rounds == 0:
+		Globals.win = true
 
 func _on_timer_timeout() -> void:
 	next.hide()

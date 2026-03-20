@@ -2,6 +2,7 @@ extends Node
 
 var money: int = 0 #implement level money; separate from total money
 var dead: bool = false #player state
+var win: bool = false
 var points: int = 0
 var lives: int = 5
 

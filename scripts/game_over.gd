@@ -11,4 +11,5 @@ func _on_restart_pressed() -> void:
 func _on_back_pressed() -> void:
 	print("back pressed")
 	get_tree().paused = false
+	Globals.dead = false
 	get_tree().change_scene_to_file("res://scenes/level_select.tscn")
