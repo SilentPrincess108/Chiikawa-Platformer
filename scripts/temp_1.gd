@@ -59,6 +59,9 @@ func _physics_process(delta: float) -> void:
 		get_tree().paused = true
 		hud.hide()
 		level_complete.show()
+		if !Globals.check_level():
+			Globals.levelNum += 1
+			Globals.unlock_level()
 	if Input.is_action_pressed("Pause"):
 		get_tree().paused = true
 		pause_screen.show()
