@@ -7,10 +7,11 @@ extends Node2D
 @onready var lives: Label = $HUD/Lives
 @onready var next: Label = $HUD/Next
 @onready var hud: CanvasLayer = $HUD
+
+#Screens
 @onready var game_over: CanvasLayer = $game_over
 @onready var level_complete: CanvasLayer = $level_complete
-
-
+@onready var pause_screen: CanvasLayer = $pause_screen
 
 @onready var itemBox: HBoxContainer = $HUD/Items
 @onready var item1: TextureRect = $HUD/Items/item1
@@ -41,6 +42,7 @@ func _ready():
 	next.hide()
 	game_over.hide()
 	level_complete.hide()
+	pause_screen.hide()
 	
 
 func _physics_process(delta: float) -> void:
@@ -57,6 +59,9 @@ func _physics_process(delta: float) -> void:
 		get_tree().paused = true
 		hud.hide()
 		level_complete.show()
+	if Input.is_action_pressed("Pause"):
+		get_tree().paused = true
+		pause_screen.show()
 		
 
 func getPos():

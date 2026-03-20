@@ -1,21 +1,52 @@
-[gd_scene load_steps=11 format=3 uid="uid://ekjqr45k0vfv"]
+[gd_scene load_steps=11 format=3 uid="uid://defa0v82ytxht"]
 
-[ext_resource type="Script" uid="uid://dolt5ta3t7ia" path="res://scripts/game_over.gd" id="1_tbwuq"]
-[ext_resource type="Shader" uid="uid://cph2auphdklqi" path="res://blur.gdshader" id="1_xeevv"]
-[ext_resource type="FontFile" uid="uid://5xdkn1hj6d3r" path="res://assets/fonts/Mansalva-Regular.ttf" id="2_wqhvx"]
+[ext_resource type="Script" uid="uid://bql4xf46e4nl1" path="res://scripts/pause_screen.gd" id="1_hr2n2"]
+[ext_resource type="Shader" uid="uid://cph2auphdklqi" path="res://blur.gdshader" id="1_qeunj"]
+[ext_resource type="FontFile" uid="uid://5xdkn1hj6d3r" path="res://assets/fonts/Mansalva-Regular.ttf" id="2_hr2n2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqhvx"]
-shader = ExtResource("1_xeevv")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_27awe"]
+shader = ExtResource("1_qeunj")
 shader_parameter/blur_amount = 1.5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbwuq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr2n2"]
 bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_racf3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duq8p"]
+bg_color = Color(0.92982304, 0.53745186, 0.6496954, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27awe"]
+bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k26m1"]
+bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o31j6"]
 bg_color = Color(0.92941177, 0.5372549, 0.6509804, 1)
 border_width_left = 3
 border_width_top = 3
@@ -27,7 +58,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m3ot"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_213y4"]
 bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
 border_width_left = 3
 border_width_top = 3
@@ -39,119 +70,92 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3hpu"]
-bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irg28"]
-bg_color = Color(0.92941177, 0.5372549, 0.6509804, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jtsn"]
-bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[node name="game_over" type="CanvasLayer"]
+[node name="pause_screen" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_tbwuq")
+script = ExtResource("1_hr2n2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_wqhvx")
-offset_right = 1163.0
-offset_bottom = 662.0
+material = SubResource("ShaderMaterial_27awe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Restart" type="Button" parent="Control"]
+[node name="Continue" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 434.0
-offset_top = 334.0
-offset_right = 678.0
-offset_bottom = 399.5
+offset_left = -125.0
+offset_top = 12.0
+offset_right = 125.0
+offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_fonts/font = ExtResource("2_hr2n2")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_tbwuq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_racf3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7m3ot")
-text = "Restart"
+theme_override_styles/normal = SubResource("StyleBoxFlat_hr2n2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_duq8p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_27awe")
+text = "Continue"
 
-[node name="Back" type="Button" parent="Control"]
+[node name="Quit" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 434.0
-offset_top = 419.75
-offset_right = 678.0
-offset_bottom = 485.25
+offset_left = -125.0
+offset_top = 98.5
+offset_right = 125.0
+offset_bottom = 169.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_fonts/font = ExtResource("2_hr2n2")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_v3hpu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_irg28")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2jtsn")
-text = "Back"
+theme_override_styles/normal = SubResource("StyleBoxFlat_k26m1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o31j6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_213y4")
+text = "Quit"
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Paused" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 367.5
-offset_top = 135.0
-offset_right = 744.5
-offset_bottom = 262.0
+offset_left = -121.5
+offset_top = -199.0
+offset_right = 121.5
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/outline_size = 12
-theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_hr2n2")
 theme_override_font_sizes/font_size = 80
-text = "Game Over"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Paused"
 
-[connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

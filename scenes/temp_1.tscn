@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bjm2a7j2oqq6f"]
+[gd_scene load_steps=13 format=3 uid="uid://bjm2a7j2oqq6f"]
 
 [ext_resource type="Script" uid="uid://c4s7munjbkgev" path="res://scripts/temp_1.gd" id="1_kpsv8"]
 [ext_resource type="Texture2D" uid="uid://v24brn67rga1" path="res://assets/sprites/basic_tileset.png" id="1_yio8x"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://5xdkn1hj6d3r" path="res://assets/fonts/Mansalva-Regular.ttf" id="6_of6kg"]
 [ext_resource type="PackedScene" uid="uid://ekjqr45k0vfv" path="res://scenes/game_over.tscn" id="7_of6kg"]
 [ext_resource type="PackedScene" uid="uid://c3ufq3ier8d5j" path="res://scenes/level_complete.tscn" id="8_10vk1"]
+[ext_resource type="PackedScene" uid="uid://defa0v82ytxht" path="res://scenes/pause_screen.tscn" id="9_585e1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7e82i"]
 texture = ExtResource("1_yio8x")
@@ -159,6 +160,9 @@ wait_time = 1.5
 layer = 2
 
 [node name="level_complete" parent="." instance=ExtResource("8_10vk1")]
+layer = 3
+
+[node name="pause_screen" parent="." instance=ExtResource("9_585e1")]
 layer = 3
 
 [connection signal="area_entered" from="Player/plate" to="." method="_on_plate_area_entered"]

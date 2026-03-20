@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ufq3ier8d5j"]
+[gd_scene load_steps=8 format=3 uid="uid://c3ufq3ier8d5j"]
 
 [ext_resource type="Script" uid="uid://dw5uao0edn84u" path="res://scripts/level_complete.gd" id="1_2e2w2"]
 [ext_resource type="Shader" uid="uid://cph2auphdklqi" path="res://blur.gdshader" id="1_4x1ak"]
@@ -7,6 +7,37 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rovvh"]
 shader = ExtResource("1_4x1ak")
 shader_parameter/blur_amount = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2e2w2"]
+bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rovvh"]
+bg_color = Color(0.92941177, 0.5372549, 0.6509804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oeyx"]
+bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="level_complete" type="CanvasLayer"]
 process_mode = 3
@@ -41,8 +72,15 @@ offset_right = 140.5
 offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_2e2w2")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_2e2w2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rovvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3oeyx")
 text = "Return to Level Select"
 
 [node name="Label" type="Label" parent="Control"]
