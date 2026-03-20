@@ -74,4 +74,4 @@ func _on_timer_timeout() -> void:
 	Engine.time_scale = 1.0
 	Globals.resetValues()
 	Globals.dead = false
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()

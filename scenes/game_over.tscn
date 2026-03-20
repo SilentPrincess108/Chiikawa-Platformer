@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://ekjqr45k0vfv"]
+
+[ext_resource type="Script" uid="uid://dolt5ta3t7ia" path="res://scripts/game_over.gd" id="1_tbwuq"]
+[ext_resource type="Shader" uid="uid://cph2auphdklqi" path="res://blur.gdshader" id="1_xeevv"]
+[ext_resource type="FontFile" uid="uid://5xdkn1hj6d3r" path="res://assets/fonts/Mansalva-Regular.ttf" id="2_wqhvx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqhvx"]
+shader = ExtResource("1_xeevv")
+shader_parameter/blur_amount = 1.5
+
+[node name="game_over" type="Node2D"]
+script = ExtResource("1_tbwuq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wqhvx")
+offset_right = 1163.0
+offset_bottom = 662.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.5
+offset_top = -165.0
+offset_right = 188.5
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = 18.0
+offset_right = 108.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="Back" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = 104.0
+offset_right = 108.5
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 30
+text = "Back"
+
+[connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]

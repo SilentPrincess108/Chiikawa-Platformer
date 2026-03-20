@@ -6,6 +6,7 @@ extends Node2D
 @onready var score: Label = $HUD/Score
 @onready var lives: Label = $HUD/Lives
 @onready var next: Label = $HUD/Next
+@onready var hud: CanvasLayer = $HUD
 
 
 @onready var itemBox: HBoxContainer = $HUD/Items
@@ -118,11 +119,12 @@ func nextRound():
 	itemBox.hide()
 	comboComplete = false
 	sandoCombo.clear()
-	setItems()
 	for e in range(items.size()):
 		items[e].texture = null
+	setItems()
 	next.show()
 	timer.start()
+	rounds -= 1
 
 func _on_timer_timeout() -> void:
 	next.hide()
