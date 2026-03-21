@@ -40,6 +40,7 @@ offset_top = 109.0
 offset_right = 252.0
 offset_bottom = 141.0
 level_id = "level_1"
+level_theme = "sandwiches"
 
 [node name="level_button2" parent="." instance=ExtResource("2_p0wlc")]
 offset_left = 441.0
@@ -47,6 +48,7 @@ offset_top = 113.0
 offset_right = 473.0
 offset_bottom = 145.0
 level_id = "level_2"
+level_theme = "fruits"
 
 [connection signal="mouse_entered" from="level_button" to="." method="_on_level_button_mouse_entered"]
 [connection signal="mouse_exited" from="level_button" to="." method="_on_level_button_mouse_exited"]
