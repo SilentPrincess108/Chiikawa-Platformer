@@ -1,8 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcfrx7htabqh8"]
+[gd_scene load_steps=5 format=3 uid="uid://dcfrx7htabqh8"]
 
 [ext_resource type="Script" uid="uid://d2fn28rn8eg6p" path="res://scripts/level_button.gd" id="1_2dylg"]
+[ext_resource type="Texture2D" uid="uid://b1hybyksb6yo5" path="res://assets/sprites/apple.png" id="1_82htg"]
+[ext_resource type="FontFile" uid="uid://5xdkn1hj6d3r" path="res://assets/fonts/Mansalva-Regular.ttf" id="3_fn1xm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8dnf"]
+bg_color = Color(0.95686275, 0.68235296, 0.7529412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="level_button" type="TextureButton"]
 offset_right = 32.0
 offset_bottom = 32.0
+texture_normal = ExtResource("1_82htg")
 script = ExtResource("1_2dylg")
+
+[node name="Popup" type="Popup" parent="."]
+oversampling_override = 1.0
+visible = true
+
+[node name="Panel" type="Panel" parent="Popup"]
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b8dnf")
+
+[node name="Label" type="Label" parent="Popup/Panel"]
+layout_mode = 1
+offset_right = 98.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("3_fn1xm")
+theme_override_font_sizes/font_size = 10
+text = "This is a button."
+autowrap_mode = 2

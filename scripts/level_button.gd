@@ -1,6 +1,8 @@
 extends TextureButton
 
 @export var level_id: String = ""
+@onready var popup: Popup = $Popup
+
 
 func _ready() -> void:
 	update()
@@ -16,3 +18,7 @@ func update():
 func setTexture():
 	self.texture_normal = load("res://assets/sprites/" + level_id + "_button.png")
 	self.texture_hover = load("res://assets/sprites/" + level_id + "_button_hover.png")
+
+func setPopUpPos():
+	if popup.visible:
+		popup.position = Vector2(get_viewport().get_mouse_position())
